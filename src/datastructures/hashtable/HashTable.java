@@ -1,5 +1,8 @@
 package datastructures.hashtable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class HashTable {
     private int size = 7;
     private Node[] dataMap;
@@ -53,5 +56,51 @@ public class HashTable {
             }
             temp.next = newNode;
         }
+    }
+
+    public int get(String key) {
+        int index = hash(key);
+        Node temp = dataMap[index];
+        while(temp != null) {
+            if(temp.key == key) return temp.value;
+
+            temp = temp.next;
+        }
+        return 0;
+    }
+
+    public ArrayList keys() {
+        ArrayList<String> allKeys = new ArrayList<>();
+
+        for(int i = 0;i < dataMap.length; i++) {
+            Node temp = dataMap[i];
+            while (temp != null) {
+                allKeys.add(temp.key);
+                temp = temp.next;
+            }
+        }
+        return allKeys;
+    }
+
+    public boolean itemInCommon(int[] array1, int[] array2) {
+        for (int i : array1) {
+            for(int j : array2) {
+                if (i == j) return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean itemInCommonOn(int[] array1, int[] array2) {
+        HashMap<Integer, Boolean> myHashMap = new HashMap<>();
+
+        for (int i : array1) {
+            myHashMap.put(i, true);
+        }
+
+        for (int j : array2) {
+            if (myHashMap.get(j) != null) return true;
+        }
+        return false;
     }
 }
