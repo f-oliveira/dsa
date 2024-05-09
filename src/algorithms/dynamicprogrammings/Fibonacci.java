@@ -1,4 +1,4 @@
-package dynamicprogrammings;
+package algorithms.dynamicprogrammings;
 
 public class Fibonacci {
 
