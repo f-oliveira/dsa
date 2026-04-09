@@ -50,6 +50,8 @@ public static int fruitIntoBasket(int[] fruits) {
 }
 
     public static void main(String args[]) {
-        fruitIntoBasket(new int[] {1, 2, 1, 2, 3});
+        int result = fruitIntoBasket(new int[] {1, 2, 1, 2, 3});
+
+        System.out.println(result);
     }
 }
